@@ -11,6 +11,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3  # 使用最新的v3版本
 
+      - name: Set up Git user
+        run: |
+          git config --global user.email "2308534727@qq.com"
+          git config --global user.name "kwj"
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3  # 使用最新的v3版本
         with:
@@ -24,7 +29,7 @@ jobs:
         run: ./gradlew createReobfPaperclipJar
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4  # 使用最新的v3版本
+        uses: actions/upload-artifact@v4  # 使用最新的v4版本
         with:
           name: server-core
           path: build/libs/*.jar
