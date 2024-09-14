@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Clear cache
+        run: sudo rm -rf ~/.gradle/caches/
+    
       - name: Checkout repository
         uses: actions/checkout@v3  # 确保 checkout 也使用 v3
 
